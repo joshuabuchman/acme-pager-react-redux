@@ -21,7 +21,7 @@ const employeesReducer = (state = [], action) =>
     }
     if(action.type === EDIT_EMPLOYEE)
     {
-      return state.map(employee => 
+      return state.rows.map(employee => 
       {
         if (employee.id === action.employee.id) 
         {
@@ -36,7 +36,7 @@ const employeesReducer = (state = [], action) =>
     }
     if(action.type === DELETE_EMPLOYEE) 
     {
-      return state.filter(employee => employee.id !== action.id)
+      return state.rows.filter(employee => employee.id !== action.id)
     }
     return state;
 };
@@ -128,8 +128,8 @@ const deleteEmployee = (id) =>
 {
     return async (dispatch) => 
     {
-      await axios.delete(`/api/employees/${id}`) // delets from backend
-      dispatch(_deleteEmployee(id)) // delete from frontend
+      await axios.delete(`/api/employees/${id}`)
+      dispatch(_deleteEmployee(id))
     }
 }
 

@@ -23,7 +23,40 @@ app.get('/api/employees/:page?', (req, res, next) => {
     pageNum = 0;
   } else if (isNaN(pageNum)) {
     return res.status(400).send({ error: 'Invalid page number' });
+}
+
+app.get('/api/employees/:id', async (req, res, next)=> 
+{
+  Employee.findAll()
+  .then( employees => res.send(employees))
+  .catch(next)
+})
+
+app.put('/api/employees/:id', async (req, res, next)=> 
+{
+  Employee.findByPk(req.params.id)
+  .then(employee => employee.update({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    title: req.body.title
+  }))
+  .then(employee => res.send(employee))
+  .catch(next)
+})
+
+app.delete('/api/employees/:id', async (req, res, next)=> 
+{
+  try{
+    const employee = await Employee.findByPk(req.params.id)
+    await employee.destroy()
+    res.sendStatus(204)
   }
+  catch(err)
+  {
+    next(err)
+  }
+})
 
   const { limit, offset } = paginate(pageNum, resultsPerPage);
   Employee.findAndCountAll({

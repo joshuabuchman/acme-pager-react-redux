@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = ({ employees, ownProps }) => 
 {
-    let curPage = ownProps.location.pathname.slice(1)
     const maxPages = Math.floor(employees.count/50)
     const pages = []
     for(let i = 1; i <= maxPages + 1; i++) 

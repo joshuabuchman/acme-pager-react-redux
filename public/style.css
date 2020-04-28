@@ -6,6 +6,7 @@ body
 button
 {
   height: 2rem;
+  width: 80px;
   font-size: .85rem;
   border-radius: .5rem;
   background-image: linear-gradient(lightgray, white);
@@ -21,6 +22,7 @@ table
     margin-right: auto;
     border-spacing: 2px;
     border-collapse: collapse; 
+    width: 1000px;
 }
 thead
 {
@@ -40,16 +42,55 @@ tbody
     width: 1000px;
     overflow-y: scroll;
 }
-th
+/* th
 {
     background-color: lavender;
     padding: .75rem;
-    padding-right: 50px;
+} */
+.fn
+{
+    background-color: lavender;
+    padding: .75rem;
 }
-td 
+.ln
+{
+    background-color: lavender;
+    padding: .75rem;
+    width: 100px;
+}
+.e
+{
+    background-color: lavender;
+    padding: .75rem;
+    width: 307px; 
+}
+.t
+{
+    background-color: lavender;
+    padding: .75rem;
+}
+.firstName
+{
+    padding: .75rem; 
+    width: 100px;
+}
+.lastName
+{
+    padding: .75rem; 
+    width: 100px;
+}
+.email
 {
     padding: .75rem;
-    padding-right: 50px;
+    width: 305px; 
+}
+.title
+{
+    padding: .75rem; 
+}
+.button
+{
+    padding: .75rem; 
 }
 tr:nth-child(even) 
 {
